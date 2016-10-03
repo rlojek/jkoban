@@ -8,36 +8,36 @@ public class JKobanTest {
 
     private static final String EMPTY_BOARD =
         "" +
-            "####\n" +
-            "#  #\n" +
-            "####";
+            "XXXX\n" +
+            "X  X\n" +
+            "XXXX";
 
     private static final String BOARD_WITH_PAYER_0_0 =
         "" +
-            "####\n" +
-            "#@ #\n" +
-            "####";
+            "XXXX\n" +
+            "X@ X\n" +
+            "XXXX";
 
     private static final String BOARD_WITH_PLAYER_0_0_BOX_1_0 =
         "" +
-            "####\n" +
-            "#@o#\n" +
-            "####";
+            "XXXX\n" +
+            "X@oX\n" +
+            "XXXX";
 
     private static final String BOARD_WITH_STORAGE_ONLY =
         "" +
-            "###\n" +
-            "#.#\n" +
-            "###";
+            "XXX\n" +
+            "X.X\n" +
+            "XXX";
     private static final String BOARD_WITH_PLAYER_1_0 = "" +
-        "####\n" +
-        "# @#\n" +
-        "####";
+        "XXXX\n" +
+        "X @X\n" +
+        "XXXX";
     ;
     private static final String BOARD_WITH_PLAYER_2_0 = "" +
-        "#####\n" +
-        "#  @#\n" +
-        "#####";
+        "XXXXX\n" +
+        "X  @X\n" +
+        "XXXXX";
     ;
 
 

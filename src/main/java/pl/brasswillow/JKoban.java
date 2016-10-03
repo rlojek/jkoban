@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.StringJoiner;
 
 public class JKoban {
+    public static final String BORDER_CHAR = "X";
     private Board board;
 
     public JKoban(Board board) {
@@ -24,7 +25,7 @@ public class JKoban {
         printStream.println(getBoardString());
     }
 
-    String getBoardString() {
+    public String getBoardString() {
         StringJoiner sj = new StringJoiner("\n");
         sj.add(getHorizontalBorder());
         for (int y = 0; y < board.getHeight(); y++) {
@@ -51,13 +52,13 @@ public class JKoban {
             }
             hLine += " ";
         }
-        return "#" + hLine + "#";
+        return BORDER_CHAR + hLine + BORDER_CHAR;
     }
 
     private String getHorizontalBorder() {
-        String hBorder = "##";
+        String hBorder = BORDER_CHAR+BORDER_CHAR;
         for (int i = 0; i < board.getWidth(); i++) {
-            hBorder += "#";
+            hBorder += BORDER_CHAR;
         }
         return hBorder;
     }
