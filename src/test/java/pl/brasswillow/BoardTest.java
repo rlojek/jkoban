@@ -24,7 +24,6 @@ public class BoardTest {
 
     }
 
-
     @Test
     public void shouldNotMoveRightOutOfBoard() throws Exception{
         Board board = new Board(2, 1).putPlayer(1, 0);
