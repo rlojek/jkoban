@@ -35,11 +35,17 @@ public class JKobanTest {
             "# @#\n" +
             "####";
 
-    private static final String BOARD_WITH_PAYER_2_0 =
+    private static final String BOARD_WITH_PAYER_2_0  =
         "" +
             "#####\n" +
             "#  @#\n" +
             "#####";
+
+    private static final String BOARD_WITH_PAYER_AND_BOX =
+        "" +
+            "####\n" +
+            "#@o#\n" +
+            "####";
 
     private Board board;
     private JKoban cut;
@@ -120,6 +126,17 @@ public class JKobanTest {
         assertThat(board.isPlayerPosition(2,0)).isTrue();
 
         assertThat(result).isEqualTo(BOARD_WITH_PAYER_2_0);
+    }
+
+    @Test
+    public void shouldNotMovePlayerRightIfBoxWithWallNextToRight() throws Exception{
+        board = new Board(2,1).putPlayer(0,0).putBox(1,0);
+        cut = new JKoban(board);
+
+        cut.movePlayerRight();
+        String result = cut.getBoardString();
+
+        assertThat(result).isEqualTo(BOARD_WITH_PAYER_AND_BOX);
     }
 
 }

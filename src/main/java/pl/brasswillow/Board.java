@@ -2,9 +2,9 @@ package pl.brasswillow;
 
 public class Board {
 
-    private Item player;
+    private Item player = Item.empty();
     private Item box = Item.empty();
-    private Item storage;
+    private Item storage = Item.empty();
 
     public int getWidth() {
         return width;

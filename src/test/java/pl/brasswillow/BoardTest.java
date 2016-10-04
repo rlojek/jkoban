@@ -21,7 +21,6 @@ public class BoardTest {
         board.movePlayerLeft();
 
         assertThat(board.isPlayerPosition(0,0)).isTrue();
-
     }
 
     @Test
