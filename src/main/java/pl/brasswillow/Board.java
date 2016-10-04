@@ -36,13 +36,13 @@ public class Board {
         return x == playerX && y == playerY;
     }
 
-    public Board putBox(int x, int y){
+    public Board putBox(int x, int y) {
         boxX = x;
-        boxY= y;
+        boxY = y;
         return this;
     }
 
-    public boolean isBoxPosition(int x, int y){
+    public boolean isBoxPosition(int x, int y) {
         return x == boxX && y == boxY;
     }
 
@@ -52,7 +52,42 @@ public class Board {
         return this;
     }
 
-    public boolean isStoragePostion(int x, int y){
+    public boolean isStoragePosition(int x, int y) {
         return x == storageX && y == storageY;
+    }
+
+    public void tryToMovePlayerRight() {
+        if (isPLayerNotNextToWall()) {
+            movePlayerRight();
+        }
+        if (isPlayerOnBoxPosition()) {
+            if (isBoxNotNextToWall()) {
+                moveBoxRight();
+            }
+        }
+    }
+
+    private void moveBoxRight() {
+        boxX += 1;
+    }
+
+    private void movePlayerRight() {
+        playerX += 1;
+    }
+
+    private boolean isBoxNotNextToWall() {
+        return boxX != width - 1;
+    }
+
+    private boolean isPLayerNotNextToWall() {
+        return playerX < width - 1;
+    }
+
+    private boolean isPlayerOnBoxPosition() {
+        return playerX == boxX;
+    }
+
+    public void movePlayerLeft() {
+        playerX = 0;
     }
 }
