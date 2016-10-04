@@ -2,12 +2,9 @@ package pl.brasswillow;
 
 public class Board {
 
-    private int playerX = -1;
-    private int playerY = -1;
-    private int boxX = -1;
-    private int boxY = -1;
-    private int storageX = -1;
-    private int storageY = -1;
+    private Item player;
+    private Item box = Item.empty();
+    private Item storage;
 
     public int getWidth() {
         return width;
@@ -27,33 +24,31 @@ public class Board {
     }
 
     public Board putPlayer(int x, int y) {
-        playerX = x;
-        playerY = y;
+        this.player = new Item(x,y);
         return this;
     }
 
     public boolean isPlayerPosition(int x, int y) {
-        return x == playerX && y == playerY;
+        return player.isOn(x,y);
     }
 
     public Board putBox(int x, int y) {
-        boxX = x;
-        boxY = y;
+        this.box= new Item(x,y);
         return this;
     }
 
     public boolean isBoxPosition(int x, int y) {
-        return x == boxX && y == boxY;
+
+        return box.isOn(x,y);
     }
 
     public Board putStorage(int x, int y) {
-        storageX = x;
-        storageY = y;
+        storage = new Item(x,y);
         return this;
     }
 
     public boolean isStoragePosition(int x, int y) {
-        return x == storageX && y == storageY;
+        return storage.isOn(x,y);
     }
 
     public void tryToMovePlayerRight() {
@@ -68,26 +63,26 @@ public class Board {
     }
 
     private void moveBoxRight() {
-        boxX += 1;
+        box.moveRight();
     }
 
     private void movePlayerRight() {
-        playerX += 1;
+        player.moveRight();
     }
 
     private boolean isBoxNotNextToWall() {
-        return boxX != width - 1;
+        return ! box.isOn(width-1, box.getY());
     }
 
     private boolean isPLayerNotNextToWall() {
-        return playerX < width - 1;
+        return !player.isOn(width-1,player.getY());
     }
 
     private boolean isPlayerOnBoxPosition() {
-        return playerX == boxX;
+        return player.isOn(box.getX(), box.getY());
     }
 
     public void movePlayerLeft() {
-        playerX = 0;
+        player = new Item(0,player.getY());
     }
 }

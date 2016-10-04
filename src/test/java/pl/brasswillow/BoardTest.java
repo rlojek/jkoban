@@ -40,6 +40,7 @@ public class BoardTest {
 
         board.tryToMovePlayerRight();
 
+        assertThat(board.isPlayerPosition(1,0)).isTrue();
         assertThat(board.isBoxPosition(2,0)).isTrue();
     }
 

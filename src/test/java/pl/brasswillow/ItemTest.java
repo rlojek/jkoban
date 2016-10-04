@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class ItemTest {
+public class ItemTest{
 
     @Test
     public void shouldHoldPosition(){
@@ -14,6 +14,12 @@ public class ItemTest {
         Item item = new Item(x,y);
 
         assertThat(item.isOn(x,y)).isTrue();
+    }
+
+    @Test
+    public void shouldHaveEmptyItem(){
+        Item emptyItem = Item.empty();
+        assertThat(emptyItem.isOn(-1,-1)).isFalse();
     }
 }
 
